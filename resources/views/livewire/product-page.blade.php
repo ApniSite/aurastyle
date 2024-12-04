@@ -45,7 +45,7 @@
                 </p>
 
                 <article class="text-gray-700 mb-4">
-                    {{ $this->product->translateAttribute('description') }}
+                    {!! $this->product->translateAttribute('description') !!}
                 </article>
 
                 <form>
