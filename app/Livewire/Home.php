@@ -65,7 +65,7 @@ class Home extends Component
 
     public function getTopBrandsProperty()
     {
-        return Brand::withCount('products')->orderBy('products_count', 'DESC')->take(8)->get();
+        return Brand::withCount('products')->orderBy('products_count', 'DESC')->take(6)->get();
     }
 
     public function render(): View

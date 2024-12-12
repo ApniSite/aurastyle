@@ -9,7 +9,7 @@
 
     <span>
         <span class="text-sm">Download from</span>
-        <span class="block text-base font-bold">Apple App Store</span>
+        <span class="block font-bold">Apple App Store</span>
     </span>
     </a>
 
@@ -22,7 +22,7 @@
 
     <span>
         <span class="text-sm">Get It On</span>
-        <span class="block text-base font-bold">Google Play Store</span>
+        <span class="block font-bold">Google Play Store</span>
     </span>
     </a>
 </div>
