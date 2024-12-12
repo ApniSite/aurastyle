@@ -1,12 +1,21 @@
 <header class="relative border-b border-gray-100">
+    <div class="bg-gray-600 text-xs text-white hidden md:block px-4 sm:px-6 lg:px-8">
+        <div class="max-w-screen-xl flex justify-between py-2">
+            <div class="ml-4"><span>Always find best deals with us</span></div>
+            <div><span>Free Delivery* & returns</span></div>
+            <div class="mr-4"><ul class="flex flex-wrap items-center justify-center">
+                <li><a href="#" class="ml-4 underline">Support</a></li>
+                <li><a href="#" class="ml-4 underline">Track Order</a></li>
+                <li><a href="#" class="ml-4 underline">Account</a></li>
+            </ul></div>
+        </div>
+    </div>
     <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
         <div class="flex items-center">
             <a class="flex items-center flex-shrink-0"
                href="{{ url('/') }}"
-               wire:navigate
-            >
+               wire:navigate>
                 <span class="sr-only">Home</span>
-
                 <x-brand.logo class="w-auto h-8 text-gray-500 hover:text-indigo-600" />
             </a>
 
@@ -14,8 +23,7 @@
                 @foreach ($this->collections as $collection)
                     <a class="text-sm font-medium transition hover:opacity-75"
                        href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
-                       wire:navigate
-                    >
+                       wire:navigate>
                         {{ $collection->translateAttribute('name') }}
                     </a>
                 @endforeach

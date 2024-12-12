@@ -81,6 +81,7 @@
             </div>
 
             <div class="space-y-6 lg:col-span-2">
+                @include('partials.checkout.channel')
                 @include('partials.checkout.address', [
                     'type' => 'shipping',
                     'step' => $steps['shipping_address'],

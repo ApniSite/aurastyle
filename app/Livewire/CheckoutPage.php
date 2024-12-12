@@ -12,6 +12,7 @@ use Lunar\Facades\Payments;
 use Lunar\Facades\ShippingManifest;
 use Lunar\Models\Cart;
 use Lunar\Models\CartAddress;
+use Lunar\Models\Channel;
 use Lunar\Models\Country;
 
 class CheckoutPage extends Component
@@ -45,6 +46,8 @@ class CheckoutPage extends Component
      * The chosen shipping option.
      */
     public $chosenShipping = null;
+
+    public $chosenChannel = null;
 
     /**
      * The checkout steps.
@@ -118,6 +121,8 @@ class CheckoutPage extends Component
                 return;
             }
         }
+
+        $this->chosenChannel = $this->cart->channel_id ?: $this->channels->first()?->id;
 
         // Do we have a shipping address?
         $this->shipping = $this->cart->shippingAddress ?: new CartAddress;
@@ -310,6 +315,23 @@ class CheckoutPage extends Component
             "{$type}.contact_email" => 'required|email',
             "{$type}.contact_phone" => 'nullable',
         ];
+    }
+
+    /**
+     * Return the available channels.
+     */
+    public function getChannelsProperty(): Collection
+    {
+        return Channel::get();
+    }
+
+    public function updatedChosenChannel()
+    {
+        $channel = $this->channels->first(fn ($channel) => $channel->id == $this->chosenChannel);
+
+        CartSession::setChannel($channel);
+
+        $this->refreshCart();
     }
 
     public function render(): View
