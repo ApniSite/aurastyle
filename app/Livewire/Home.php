@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Product;
 use Illuminate\View\View;
 use Livewire\Component;
+use Lunar\Models\Brand;
 use Lunar\Models\Collection;
 use Lunar\Models\Url;
 
@@ -60,6 +61,11 @@ class Home extends Component
     public function getLatestProductsProperty()
     {
         return Product::status('published')->orderBy('created_at', 'DESC')->take(8)->get();
+    }
+
+    public function getTopBrandsProperty()
+    {
+        return Brand::withCount('products')->orderBy('products_count', 'DESC')->take(8)->get();
     }
 
     public function render(): View

@@ -14,9 +14,8 @@ class ProductMediaDefinitions implements \Lunar\Base\MediaDefinitionsInterface
     {
         // Add a conversion for the admin panel to use
         $model->addMediaConversion('small')
-            ->fit(Fit::Crop, 210, 300)
+            ->fit(Fit::Max, 210, 210)
             ->border(0, BorderType::Overlay, color: '#FFF')
-            ->background('#FFF')
             ->sharpen(10)
             ->keepOriginalImageFormat();
     }
