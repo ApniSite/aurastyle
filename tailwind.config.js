@@ -1,14 +1,19 @@
-module.exports = {
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
+
+/** @type {import('tailwindcss').Config} */
+export default {
     content: [
         './resources/**/*.blade.php',
         './resources/**/*.js',
         './vendor/lunarphp/stripe-payments/resources/views/**/*.blade.php',
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            }
+        },
     },
-    variants: {
-      fill: ['hover'],
-    },
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [forms],
 };

@@ -24,7 +24,7 @@
     <!-- End Google Tag Manager -->
 </head>
 
-<body class="antialiased text-gray-900">
+<body class="font-sans text-gray-900 antialiased">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K56C3QSR"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
