@@ -33,7 +33,7 @@
 
                 <div class="flow-root">
                     <dl class="-my-4 text-sm divide-y divide-gray-100">
-                        <div class="flex flex-wrap py-4 text-base">
+                        <div class="flex flex-wrap py-4">
                             <dt class="w-1/2 font-medium">
                                 Sub Total
                             </dt>
