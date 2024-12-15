@@ -29,14 +29,15 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K56C3QSR"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    @livewire('components.navigation')
+    <div class="min-h-screen flex flex-col">
+    <livewire:components.navigation />
 
-    <main>
+    <main class="grow">
         {{ $slot }}
     </main>
 
     <x-footer />
-
+    </div>
     @livewireScripts
 </body>
 
