@@ -9,6 +9,6 @@ class AboutPage extends Component
 {
     public function render(): View
     {
-        return view('livewire.about');
+        return view('livewire.pages.about');
     }
 }
