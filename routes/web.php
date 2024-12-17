@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\AboutPage;
+use App\Livewire\AccountPage;
 use App\Livewire\BrandPage;
 use App\Livewire\CheckoutPage;
 use App\Livewire\CheckoutSuccessPage;
@@ -45,3 +46,11 @@ Route::get('terms-of-use', TermsPage::class);
 Route::get('about-us', AboutPage::class);
 
 Route::get('contact-us', ContactPage::class);
+
+/** Account routes */
+
+Route::get('my-account', AccountPage::class)->middleware(['auth', 'verified'])->name('account');
+
+/** Auth routes */
+
+require __DIR__.'/auth.php';
