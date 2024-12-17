@@ -14,7 +14,7 @@ class CreateOrderNotifications
      */
     public function handle(Order $order, Closure $next)
     {
-        Notification::route('mail', env('ADMIN_EMAIL'))
+        Notification::route('mail', config('meta.support.admin'))
             ->notify(new NewOrder($order));
 
         return $next($order);
