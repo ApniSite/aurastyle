@@ -39,13 +39,13 @@ Route::get('checkout', CheckoutPage::class)->name('checkout.view');
 
 Route::get('checkout/success', CheckoutSuccessPage::class)->name('checkout-success.view');
 
-Route::get('privacy-policy', PrivacyPage::class);
+Route::get('contact-us', ContactPage::class)->name('contact');
 
-Route::get('terms-of-use', TermsPage::class);
+Route::view('about-us', 'pages.about')->name('about');
 
-Route::get('about-us', AboutPage::class);
+Route::view('privacy-policy', 'pages.privacy')->name('privacy');
 
-Route::get('contact-us', ContactPage::class);
+Route::view('terms-of-use', 'pages.terms')->name('terms');
 
 /** Account routes */
 

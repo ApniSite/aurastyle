@@ -15,7 +15,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::view('profile', 'profile')->name('profile');
+    Route::view('profile', 'pages.profile')->name('profile');
 
     Volt::route('verify-email', 'pages.auth.verify-email')->name('verification.notice');
 

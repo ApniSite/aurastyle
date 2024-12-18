@@ -1,3 +1,4 @@
+<x-app-layout>
 <div class="max-w-screen-xl p-4 mx-auto space-y-4 sm:px-6 lg:px-8">
 <section class="mb-12 bg-indigo-600 text-white p-6 text-center rounded-lg">
     <h1 class="text-3xl font-bold">Welcome to Aura Style</h1>
@@ -49,3 +50,4 @@
     <p class="italic text-sm">Follow us on social media for the latest updates, style inspiration, and exclusive promotions. Stay stylish, stay confident, and let Aura Style be your go-to fashion destination!</p>
 </section>
 </div>
+</x-app-layout>

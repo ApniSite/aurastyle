@@ -1,3 +1,4 @@
+<x-app-layout>
 <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-6 sm:px-6 lg:px-8">
 <section class="mb-12 bg-indigo-600 text-white p-6 text-center rounded-lg">
     <h1 class="text-3xl font-bold">Privacy Policy</h1>
@@ -78,3 +79,4 @@
     <p class="text-sm">If you have any questions or concerns about this Privacy Policy or how we handle your personal information, please <a href="/contact-us" class="text-indigo-600 hover:underline">contact us<a></p>
 </section>
 </div>
+</x-app-layout>

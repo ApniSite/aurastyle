@@ -30,7 +30,7 @@
     <div class="min-h-screen flex flex-col sm:justify-center items-center py-6 bg-gray-100 dark:bg-gray-900">
         <div>
             <a href="/" wire:navigate>
-                <x-brand.dark-logo class="w-auto h-16 mb-4 text-gray-500 dark:text-gray-300 hover:text-indigo-600" />
+                <x-brand.logo-dark class="w-auto h-16 mb-4 text-gray-500 dark:text-gray-300 hover:text-indigo-600" />
             </a>
         </div>
         <div class="max-w-screen-xl mt-4 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
