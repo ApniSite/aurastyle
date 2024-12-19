@@ -1,5 +1,5 @@
 <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 lg:px-8">
-    <div class="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 overflow-hidden sm:rounded-lg">
+    <div class="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 shadow sm:rounded-lg">
         <div class="flex flex-col md:flex-row py-4">
             <nav class="basis-1/5 space-y-4 text-sm font-medium ml-4">
                 <a href="#" class="block underline hover:opacity-75">Orders</a>

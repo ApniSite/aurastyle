@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new #[Layout('layouts.auth')] class extends Component
+new #[Layout('layouts.storefront')] class extends Component
 {
     public LoginForm $form;
 
@@ -24,7 +24,14 @@ new #[Layout('layouts.auth')] class extends Component
     }
 }; ?>
 
-<div>
+<x-container>
+    <div class="max-w-md p-4 mx-auto border border-gray-300 dark:border-gray-700 rounded-lg">
+        <div class="flex flex-col items-center mx-auto text-gray-500 dark:text-gray-300">
+            <a href="/" wire:navigate>
+                <x-brand.logo-dark class="w-auto h-16 mb-4 hover:text-indigo-600"/>
+            </a>
+            <p class="mt-2 mb-4 text-sm">{{ __('Sign in with your mobile number or email') }}</p>
+        </div>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -46,28 +53,32 @@ new #[Layout('layouts.auth')] class extends Component
         </div>
 
         <!-- Remember Me -->
-        <div class="block mt-4">
+        <div class="flex mt-4 text-sm">
             <label for="remember" class="inline-flex items-center">
-                <input wire:model="form.remember" id="remember" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+                <input wire:model="form.remember" id="remember" type="checkbox" class="rounded text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
+                <span class="ml-2 text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
             </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}" wire:navigate>
+                <a class="ml-auto underline text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}" wire:navigate>
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
-
-            <x-button.primary class="ml-4">
-                {{ __('Log in') }}
-            </x-button.primary>
         </div>
-        <div class="mt-6 py-4 text-center border-t">
+
+        <div class="flex items-center justify-end mt-4">
+            <x-button.primary>{{ __('Sign in') }}</x-button.primary>
+        </div>
+    </form>
+
+    <div class="flex flex-cols items-center justify-center mt-6 relative text-sm">
+        <hr class="w-full border">
+        <span class="absolute px-4 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300">{{ __('Or') }}</span>
+    </div>
+
+        <div class="mt-6 text-center">
             <a href="{{ route('register') }}" wire:navigate class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
                 {{ __('Register a new account') }}
             </a>
         </div>
-    </form>
-</div>
+    </div>
+</x-container>

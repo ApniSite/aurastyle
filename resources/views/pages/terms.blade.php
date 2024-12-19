@@ -1,4 +1,5 @@
-<div class="max-w-screen-xl px-4 py-8 mx-auto space-y-6 sm:px-6 lg:px-8">
+<x-app-layout>
+  <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-6 sm:px-6 lg:px-8">
     <section class="mb-12 bg-indigo-600 text-white p-6 text-center rounded-lg">
         <h1 class="text-3xl font-bold">Aura Style - Terms and Conditions</h1>
         <p class="mt-2 text-lg">Effective Date: <span class="font-medium">29th Nov. 2024</span></p>
@@ -100,4 +101,5 @@
         <h2 class="text-2xl font-medium text-indigo-600 mb-4">Contact Us</h2>
         <p class="text-sm">If you have any questions or concerns about these terms or how we handle the services, please <a href="/contact-us" class="text-indigo-600 hover:underline">contact us<a></p>
     </section>
-</div>
+  </div>
+</x-app-layout>

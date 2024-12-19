@@ -1,10 +1,9 @@
-@inject('meta', \App\Models\Meta::class)
 <!DOCTYPE html>
 <html prefix="og: https://ogp.me/ns#" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    @include('partials.meta', [$meta])
-    <title>{{ $meta->title }}</title>
+    @include('partials.meta')
+    <title>{{ config('meta.title') }}</title>
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16.png') }}">
@@ -15,20 +14,11 @@
     @vite('resources/css/app.css')
     <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
     @livewireStyles
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-K56C3QSR');</script>
-    <!-- End Google Tag Manager -->
+    @include('partials.gtm')
 </head>
 
 <body class="font-sans text-gray-900 antialiased">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K56C3QSR"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    @include('partials.gtm-noscript')
     <div class="min-h-screen flex flex-col">
     <livewire:components.navigation />
 

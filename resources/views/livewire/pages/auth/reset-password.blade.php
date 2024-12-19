@@ -10,7 +10,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Locked;
 use Livewire\Volt\Component;
 
-new #[Layout('layouts.auth')] class extends Component
+new #[Layout('layouts.storefront')] class extends Component
 {
     #[Locked]
     public string $token = '';
@@ -69,7 +69,8 @@ new #[Layout('layouts.auth')] class extends Component
     }
 }; ?>
 
-<div>
+<x-container>
+    <div class="max-w-md p-4 mx-auto border border-gray-300 dark:border-gray-700 rounded-lg">
     <article class="mb-4 text-sm text-gray-600 dark:text-gray-400">
     <h3 class="text-lg font-medium">{{ __('Set a new password') }}</h3>
     <p>{{ __('Just enter your new password and confirm.') }}</p>
@@ -101,15 +102,14 @@ new #[Layout('layouts.auth')] class extends Component
             <x-input.error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="flex items-center justify-between mt-4">
+            <a href="{{ route('login') }}" wire:navigate class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                {{ __('Back to sign in') }}
+            </a>
             <x-button.primary>
                 {{ __('Reset Password') }}
             </x-button.primary>
         </div>
-        <div>
-            <a href="{{ route('login') }}" wire:navigate class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
-                {{ __('Back to sign in') }}
-            </a>
-        </div>
     </form>
-</div>
+    </div>
+</x-container>

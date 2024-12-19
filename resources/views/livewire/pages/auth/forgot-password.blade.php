@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Password;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new #[Layout('layouts.auth')] class extends Component
+new #[Layout('layouts.storefront')] class extends Component
 {
     public string $email = '';
 
@@ -36,10 +36,11 @@ new #[Layout('layouts.auth')] class extends Component
     }
 }; ?>
 
-<div>
+<x-container>
+    <div class="max-w-md p-4 mx-auto border border-gray-300 dark:border-gray-700 rounded-lg">
     <article class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-    <h3 class="text-lg font-medium">{{ __('Forgot your password? No problem.') }}</h3>
-    <p>{{ __('Just enter your email address and we will email you a password reset link.') }}</p>
+        <h3 class="mb-4 text-lg font-medium">{{ __('Forgot your password? No problem.') }}</h3>
+        <p>{{ __('Just enter your email address and we will send you a password reset link.') }}</p>
     </article>
 
     <!-- Session Status -->
@@ -53,15 +54,14 @@ new #[Layout('layouts.auth')] class extends Component
             <x-input.error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="flex items-center justify-between mt-4">
+            <a href="{{ route('login') }}" wire:navigate class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
+                {{ __('Back to sign in') }}
+            </a>
             <x-button.primary>
                 {{ __('Email Password Reset Link') }}
             </x-button.primary>
         </div>
-        <div>
-            <a href="{{ route('login') }}" wire:navigate class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
-                {{ __('Back to sign in') }}
-            </a>
-        </div>
     </form>
-</div>
+    </div>
+</x-container>

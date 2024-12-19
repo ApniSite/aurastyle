@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new #[Layout('layouts.auth')] class extends Component
+new #[Layout('layouts.storefront')] class extends Component
 {
     /**
      * Send an email verification notification to the user.
@@ -35,12 +35,13 @@ new #[Layout('layouts.auth')] class extends Component
     }
 }; ?>
 
-<div>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        <h3 class="text-lg font-medium">{{ __('Thanks for signing up!') }}</h3>
-        <p>{{ __('Please verify your email address by clicking on the link we just emailed to you?') }}</p>
-        <p>{{ __('If you didn\'t receive the email, we will gladly send you another.') }}</p>
-    </div>
+<x-container>
+    <div class="max-w-md p-4 mx-auto border border-gray-300 dark:border-gray-700 rounded-lg">
+    <article class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+        <h3 class="mb-4 text-lg font-medium">{{ __('Thanks for signing up!') }}</h3>
+        <p class="mb-4">{{ __('Please go to your email inbox and verify your email address by clicking on "Verify Email Address"!') }}</p>
+        <p>{{ __('If you didn\'t receive the email in a few minutes, we will gladly send you another.') }}</p>
+    </article>
 
     @if (session('status') == 'verification-link-sent')
         <div class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">
@@ -48,13 +49,14 @@ new #[Layout('layouts.auth')] class extends Component
         </div>
     @endif
 
-    <div class="mt-4 flex items-center justify-between">
+    <div class="flex items-center justify-between mt-4">
+        <button wire:click="logout" type="submit" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+            {{ __('Sign Out') }}
+        </button>
+
         <x-button.primary wire:click="sendVerification">
             {{ __('Resend Verification Email') }}
         </x-button.primary>
-
-        <button wire:click="logout" type="submit" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-            {{ __('Log Out') }}
-        </button>
     </div>
-</div>
+    </div>
+</x-container>

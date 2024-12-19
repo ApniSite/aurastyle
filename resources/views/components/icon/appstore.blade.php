@@ -1,5 +1,5 @@
 <div {{ $attributes }}>
-    <a href="javascript:void(0)" class="mb-4 mr-4 flex w-full max-w-56 items-center rounded text-white bg-indigo-600 px-5 py-2 hover:bg-indigo-700">
+    <a href="javascript:void(0)" class="mb-4 mr-4 flex w-full max-w-56 items-center rounded px-5 py-2 text-white bg-indigo-600 hover:bg-indigo-700">
     <span class="block pr-2">
         <svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M23.7663 3C23.8353 3 23.9043 3 23.9772 3C24.1464 4.83165 23.3484 6.20025 22.3785 7.19136C21.4269 8.17562 20.1238 9.13022 18.016 8.98536C17.8755 7.17995 18.6748 5.91285 19.6434 4.92404C20.5417 4.00251 22.1884 3.18248 23.7663 3Z"></path>
@@ -13,7 +13,7 @@
     </span>
     </a>
 
-    <a href="javascript:void(0)" class="mb-4 mr-4 flex w-full max-w-56 items-center rounded text-indigo-600 px-5 py-2 hover:text-indigo-700 border focus:ring">
+    <a href="javascript:void(0)" class="mb-4 mr-4 flex w-full max-w-56 items-center rounded px-5 py-2 border text-indigo-600 dark:text-indigo-500 hover:text-indigo-700">
     <span class="block pr-2">
         <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M4.81556 0.46875L17.6221 13.2729L20.9268 9.96825C16.4111 7.22845 10.363 3.55305 7.64302 1.90054L5.8207 0.796566C5.49862 0.600342 5.15372 0.494667 4.81556 0.46875ZM2.86071 2.00178C2.83479 2.14247 2.8125 2.28386 2.8125 2.43566V27.7403C2.8125 27.8464 2.83385 27.9452 2.84865 28.0464L15.877 15.0181L2.86071 2.00178ZM23.0986 11.2867L19.3673 15.0181L23.0336 18.6843C24.9761 17.507 26.3215 16.6894 26.4708 16.5993C27.1311 16.1957 27.504 15.5869 27.4928 14.9217C27.483 14.2688 27.11 13.6851 26.4757 13.326C26.3337 13.2445 25.0066 12.4431 23.0986 11.2867ZM17.6221 16.7633L4.85414 29.5312C5.1022 29.4881 5.34994 29.4141 5.58689 29.2709C5.9152 29.071 14.7836 23.6904 20.8618 20.0028L17.6221 16.7633Z"></path>
