@@ -20,7 +20,7 @@
                                     </p>
 
                                     <span class="block mt-1 text-sm text-gray-500">
-                                        {{ $line->quantity }} @ {{ $line->subTotalDiscounted->formatted() }} 
+                                        {{ $line->quantity }} @ {{ $line->subTotalDiscounted->formatted() }}
                                         @if ($line->discountTotal->value)
                                         <span class="text-xs text-red-600">You save {{ $line->discountTotal->formatted() }}</span>
                                         @endif
@@ -82,6 +82,7 @@
 
             <div class="space-y-6 lg:col-span-2">
                 @include('partials.checkout.channel')
+                @include('partials.checkout.user')
                 @include('partials.checkout.address', [
                     'type' => 'shipping',
                     'step' => $steps['shipping_address'],
