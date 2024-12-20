@@ -1,7 +1,7 @@
 @push('scripts')
 <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.key') }}"></script>
 @endpush
-<div class="bg-white border border-gray-100 rounded-xl">
+<div class="bg-white border border-gray-200 rounded-xl">
     <div class="flex items-center h-16 px-6 border-b border-gray-100">
         <h3 class="text-lg font-medium">
             Payment
@@ -41,7 +41,7 @@
             @error('recaptcha')
                 <div class="bg-red-300 text-red-700 p-3 rounded">{{ $message }}</div>
             @enderror
-                <form id="cashInHand" 
+                <form id="cashInHand"
                 {{-- wire:submit="checkout"  --}}
                 @submit.prevent="doCaptcha"
                 x-data="{
@@ -64,7 +64,7 @@
                     </div>
 
                     <button class="g-recaptcha px-5 py-3 mt-4 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500"
-                            {{-- data-sitekey="{{ config('services.recaptcha.key') }}" 
+                            {{-- data-sitekey="{{ config('services.recaptcha.key') }}"
                             data-callback='onSubmit'
                             data-action='submit' --}}
                             type="submit"

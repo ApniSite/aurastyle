@@ -1,5 +1,5 @@
 <form wire:submit="saveAddress('{{ $type }}')"
-      class="bg-white border border-gray-100 rounded-xl">
+      class="bg-white border border-gray-200 rounded-xl">
     <div class="flex items-center justify-between h-16 px-6 border-b border-gray-100">
         <h3 class="text-lg font-medium">
             {{ ucfirst($type) }} Details
@@ -7,7 +7,7 @@
 
         @if ($type == 'shipping' && $step == $currentStep)
             <label class="flex items-center p-2 rounded-lg cursor-pointer hover:bg-gray-50">
-                <input class="w-5 h-5 text-green-600 border-gray-100 rounded"
+                <input class="w-5 h-5 text-green-600 border-gray-200 rounded"
                        type="checkbox"
                        value="1"
                        wire:model.live="shippingIsBilling" />

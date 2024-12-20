@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Rules\ReCaptcha;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Lunar\Facades\CartSession;
@@ -255,7 +256,7 @@ class CheckoutPage extends Component
 
         $this->determineCheckoutStep();
     }
-    
+
     #[On('onCheckout')]
     public function checkout()
     {
@@ -334,9 +335,16 @@ class CheckoutPage extends Component
         $this->refreshCart();
     }
 
+    public function redirectToLogin()
+    {
+        session()->put('url.intended', url());
+
+        redirect()->guest('login');
+    }
+
+    #[Layout('layouts.checkout')]
     public function render(): View
     {
-        return view('livewire.checkout-page')
-            ->layout('layouts.checkout');
+        return view('livewire.checkout-page');
     }
 }
