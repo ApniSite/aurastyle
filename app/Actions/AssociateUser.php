@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Actions;
+namespace App\Actions;
 
 use Lunar\Actions\Carts\AssociateUser as CartsAssociateUser;
 use Lunar\Base\LunarUser;

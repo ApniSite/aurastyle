@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\Actions\ResetPassword;
+use App\Actions\ResetPassword;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
