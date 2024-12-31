@@ -14,7 +14,7 @@ class ProductPrice extends Component
     public ?Price $price = null;
 
     public ?ProductVariant $variant = null;
-    
+
     public ?\Lunar\DataTypes\Price $discountedPrice = null;
 
     /**
@@ -30,7 +30,7 @@ class ProductPrice extends Component
 
         $this->discountedPrice = $this->calculateDiscountedPrice(
             $product?: $variant->product
-        );        
+        );
     }
 
     private function calculateDiscountedPrice($product): ?\Lunar\DataTypes\Price
@@ -40,7 +40,7 @@ class ProductPrice extends Component
         if (!empty($data['percentage'])) {
             $discountValue = $data['percentage'] ?? 0;
             return new \Lunar\DataTypes\Price(
-                (int) round($this->price->price->value * ($discountValue / 100)),
+                (int) round($this->price->price->value * ((100 - $discountValue) / 100)),
                 $this->price->currency,
                 1
             );
