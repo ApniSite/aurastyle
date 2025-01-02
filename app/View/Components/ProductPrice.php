@@ -2,7 +2,6 @@
 
 namespace App\View\Components;
 
-use Exception;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use Lunar\Facades\Pricing;

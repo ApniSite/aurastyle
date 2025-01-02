@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Lunar\Models\Collection;
+use Illuminate\Support\Facades\Auth;
+use Lunar\Models\CustomerGroup;
 use Lunar\Models\Discount;
 use Lunar\Models\Product as LunarProduct;
 
@@ -15,9 +14,13 @@ class Product extends LunarProduct
      */
     public function discount(): ?Discount
     {
+        $customerGroups = Auth::user()?->latestCustomer()?->customerGroups
+            ?? collect([CustomerGroup::getDefault()]);
         $collections = $this->collections;
+
         return Discount::active()
         ->usable()
+        ->customerGroup($customerGroups)
         ->whereHas('collections', function($query) use ($collections) {
             $prefix = config('lunar.database.table_prefix');
             $query->whereIn("{$prefix}collection_discount.collection_id", $collections->pluck('id'));
