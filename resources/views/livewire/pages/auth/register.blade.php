@@ -9,6 +9,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Url;
 use Livewire\Volt\Component;
 use Lunar\Models\Customer;
+use Lunar\Models\CustomerGroup;
 
 new #[Layout('layouts.storefront')] class extends Component
 {
@@ -38,12 +39,19 @@ new #[Layout('layouts.storefront')] class extends Component
         $validated['password'] = Hash::make($validated['password']);
         $validated['name'] = implode(' ', [$validated['first_name'], $validated['last_name']]);
         $user = User::create($validated);
-        // [$first_name, $last_name] = preg_split('/.*\K /', $user->name);
+
+        // Create customer
         $customer = Customer::create([
             'first_name' => $validated['first_name'],
             'last_name' => $validated['last_name'],
         ]);
         $customer->users()->attach($user);
+
+        // Attach customer group
+        if ($customerGroup = CustomerGroup::firstWhere('handle', 'new-year-25')) {
+            $customer->customerGroups()->attach($customerGroup);
+        }
+
         event(new Registered($user));
 
         Auth::login($user);
