@@ -19,11 +19,27 @@
 
             <nav class="hidden lg:gap-4 lg:flex lg:ml-8">
                 @foreach ($this->collections as $collection)
-                    <a class="text-sm font-medium transition hover:opacity-75"
+                <div class="relative" x-data="{ open: false }" @mouseover.away="open = false">
+                    <a class="py-4 text-sm font-medium transition hover:opacity-75"
                        href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
-                       wire:navigate>
+                       wire:navigate @mouseover="open = true">
                         {{ $collection->translateAttribute('name') }}
                     </a>
+
+                    @if (count($collection->children))
+                    <div class="absolute top-auto z-50 w-60 mx-auto bg-gray-100 border border-gray-100 shadow-xl sm:left-auto rounded-md"
+                        x-show="open" x-transition x-cloak>
+                    <ul class="text-sm font-medium text-gray-600 ">
+                        @foreach ($collection->children as $collection)
+                        <li><a href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
+                            class="flex items-center px-3 py-4 transition hover:bg-gray-200">
+                            {{ $collection->translateAttribute('name') }}
+                        </a></li>
+                        @endforeach
+                    </ul>
+                    </div>
+                    @endif
+                </div>
                 @endforeach
             </nav>
         </div>
@@ -54,10 +70,8 @@
                         </span>
                     </button>
 
-                    <div x-cloak
-                         x-transition
-                         x-show="mobileMenu"
-                         class="absolute right-0 top-auto z-50 w-screen p-4 sm:max-w-xs">
+                    <div class="absolute right-0 z-50 w-screen sm:max-w-xs"
+                        x-cloak x-transition x-show="mobileMenu">
                         <ul x-on:click.away="mobileMenu = false"
                             class="p-6 space-y-4 bg-white border border-gray-100 shadow-xl rounded-xl">
                             @foreach ($this->collections as $collection)
