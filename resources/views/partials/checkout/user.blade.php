@@ -7,7 +7,7 @@
             <h2 class="text-lg font-medium">Welcome {{ Auth::user()->name }},</h2>
         @endauth
         @guest
-            <span class="mr-2 text-sm">I want eXtra discount</span>
+            <span class="mr-2 text-sm">Get 20% eXtra discount</span>
             <button wire:click="redirectToLogin" class="px-5 py-3 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500">
                 {{ __('Sign in to my account!') }}
             </button>
