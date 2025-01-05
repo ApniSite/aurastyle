@@ -27,28 +27,28 @@ new class extends Component
         </span>
     </button>
 
-    <div class="absolute inset-x-0 top-auto z-50 w-screen max-w-xs mx-auto bg-white border border-gray-100 shadow-xl sm:left-auto rounded-md"
+    <div class="absolute right-0 z-50 w-60 mx-auto bg-white border border-gray-100 shadow-xl sm:left-auto rounded-md"
          x-show="open" x-on:click.away="open = false" x-transition x-cloak>
-        <div class="divide-y text-sm font-medium text-gray-600 ">
+        <ul class="text-sm font-medium text-gray-600 ">
         @guest
-        <a href="{{ route('login') }}" class="block underline px-3 py-4 transition hover:bg-gray-100">
+        <li><a href="{{ route('login') }}" class="flex items-center px-3 py-4 transition hover:bg-gray-100">
             Sign in
-        </a>
-        <a href="{{ route('register') }}" class="block underline px-3 py-4 transition hover:bg-gray-100">
+        </a></li>
+        <li><a href="{{ route('register') }}" class="flex items-center px-3 py-4 transition hover:bg-gray-100">
             Register
-        </a>
+        </a></li>
         @endguest
-        <a href="{{ route('profile') }}" class="block underline px-3 py-4 transition hover:bg-gray-100">
-            Profile
-        </a>
-        <a href="{{ route('account') }}" class="block underline px-3 py-4 transition hover:bg-gray-100">
+        <li><a href="{{ route('account') }}" class="flex items-center px-3 py-4 transition hover:bg-gray-100">
             Orders
-        </a>
+        </a></li>
+        <li><a href="{{ route('profile') }}" class="flex items-center px-3 py-4 transition hover:bg-gray-100">
+            Profile
+        </a></li>
         @auth
         <button wire:click="logout" class="w-full text-indigo-600 py-4 transition hover:bg-gray-100">
             Not <span class="underline">{{ Auth::user()->name}}</span>? Sign out
         </button>
         @endauth
-        </div>
+        </ul>
     </div>
 </div>

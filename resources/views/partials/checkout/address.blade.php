@@ -36,7 +36,7 @@
                                    :errors="$errors->get($type . '.first_name')"
                                    required>
                         <x-input.text wire:model.live="{{ $type }}.first_name"
-                                      required />
+                                      required autocomplete="given_name" />
                     </x-input.group>
 
                     <x-input.group class="col-span-3"
@@ -44,7 +44,7 @@
                                    :errors="$errors->get($type . '.last_name')"
                                    required>
                         <x-input.text wire:model.live="{{ $type }}.last_name"
-                                      required />
+                                      required autocomplete="family_name" />
                     </x-input.group>
 
                     <x-input.group class="col-span-6"
@@ -55,17 +55,16 @@
 
                     <x-input.group class="col-span-6 sm:col-span-3"
                                    label="Contact phone"
-                                   :errors="$errors->get($type . '.contact_phone')">
-                        <x-input.text wire:model.live="{{ $type }}.contact_phone" />
+                                   :errors="$errors->get($type . '.contact_phone')"
+                                   required>
+                        <x-input.text wire:model.live="{{ $type }}.contact_phone" required autocomplete="mobile"/>
                     </x-input.group>
 
                     <x-input.group class="col-span-6 sm:col-span-3"
                                    label="Contact email"
-                                   :errors="$errors->get($type . '.contact_email')"
-                                   required>
-                        <x-input.text wire:model.live="{{ $type }}.contact_email"
-                                      type="email"
-                                      required />
+                                   :errors="$errors->get($type . '.contact_email')" required>
+                        <x-input.text wire:model.live="{{ $type }}.contact_email" required autocomplete="email"
+                                      type="email"/>
                     </x-input.group>
 
                     <div class="col-span-6">
@@ -90,8 +89,7 @@
                                    label="City"
                                    :errors="$errors->get($type . '.city')"
                                    required>
-                        <x-input.text wire:model.live="{{ $type }}.city"
-                                      required />
+                        <x-input.text wire:model.live="{{ $type }}.city" required />
                     </x-input.group>
 
                     <x-input.group class="col-span-3 sm:col-span-2"
@@ -104,13 +102,10 @@
                                    label="Postcode"
                                    :errors="$errors->get($type . '.postcode')"
                                    required>
-                        <x-input.text wire:model.live="{{ $type }}.postcode"
-                                      required />
+                        <x-input.text wire:model.live="{{ $type }}.postcode" required />
                     </x-input.group>
 
-                    <x-input.group class="col-span-6"
-                                   label="Country"
-                                   required>
+                    <x-input.group class="col-span-6" label="Country" required>
                         <select class="w-full p-3 border border-gray-200 rounded-lg sm:text-sm"
                                 wire:model.live="{{ $type }}.country_id">
                             <option value>Select a country</option>
@@ -123,9 +118,7 @@
                     <div>
                         <div class="space-y-4">
                             <div>
-                                <dt class="font-medium">
-                                    Name
-                                </dt>
+                                <dt class="font-medium">Name</dt>
 
                                 <dd class="mt-0.5">
                                     {{ $this->{$type}->first_name }} {{ $this->{$type}->last_name }}
@@ -134,9 +127,7 @@
 
                             @if ($this->{$type}->company_name)
                                 <div>
-                                    <dt class="font-medium">
-                                        Company
-                                    </dt>
+                                    <dt class="font-medium">Company</dt>
 
                                     <dd class="mt-0.5">
                                         {{ $this->{$type}->company_name }}
@@ -146,9 +137,7 @@
 
                             @if ($this->{$type}->contact_phone)
                                 <div>
-                                    <dt class="font-medium">
-                                        Phone Number
-                                    </dt>
+                                    <dt class="font-medium">Phone Number</dt>
 
                                     <dd class="mt-0.5">
                                         {{ $this->{$type}->contact_phone }}
@@ -157,9 +146,7 @@
                             @endif
 
                             <div>
-                                <dt class="font-medium">
-                                    Email
-                                </dt>
+                                <dt class="font-medium">Email</dt>
 
                                 <dd class="mt-0.5">
                                     {{ $this->{$type}->contact_email }}
@@ -169,9 +156,7 @@
                     </div>
 
                     <div>
-                        <dt class="font-medium">
-                            Address
-                        </dt>
+                        <dt class="font-medium">Address</dt>
 
                         <dd class="mt-0.5">
                             {{ $this->{$type}->line_one }}<br>
