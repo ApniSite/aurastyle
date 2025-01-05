@@ -5,7 +5,7 @@
         </h2>
 
         @if (count($this->collection->children))
-        <nav><ul class="flex gap-4">
+        <nav class="w-full overflow-scroll"><ul class="flex gap-4">
             @foreach ($this->collection->children as $collection)
             <li class="bg-gray-100">
                 <a href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
