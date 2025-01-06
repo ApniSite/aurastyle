@@ -17,14 +17,16 @@
         @endif
 
         <div class="grid grid-cols-2 gap-8 my-4 sm:grid-cols-3 lg:grid-cols-4">
-            @forelse($this->collection->products as $product)
+            @forelse($this->products as $product)
                 <x-product-card :product="$product" />
             @empty
                 <div class="col-span-2 text-sm">
                     {!! $this->collection->translateAttribute('description') !!}
                 </div>
             @endforelse
+            <div class="col-span-full h-16">{{ $this->products->links() }}</div>
         </div>
+        <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between"></div>
     </section>
     @foreach ($this->collection->children as $collection)
         @if (count($collection->products))
