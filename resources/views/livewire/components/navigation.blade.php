@@ -14,7 +14,8 @@
         <div class="flex items-center">
             <a href="{{ url('/') }}" class="flex items-center flex-shrink-0" wire:navigate>
                 <span class="sr-only">Home</span>
-                <x-brand.logo class="w-auto h-8 text-gray-500 hover:text-indigo-600" />
+                <x-brand.logo class="w-auto h-8 text-gray-500 hover:text-indigo-600 hidden sm:block" />
+                <x-brand.icon class="w-auto h-8 text-gray-500 hover:text-indigo-600 block sm:hidden" />
             </a>
 
             <nav class="hidden lg:gap-4 lg:flex lg:ml-8">

@@ -6,11 +6,12 @@ use App\Traits\FetchesUrls;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
+use Livewire\WithPagination;
 use Lunar\Models\Collection as CollectionModel;
 
 class CollectionPage extends Component
 {
-    use FetchesUrls;
+    use FetchesUrls, WithPagination;
 
     public function mount(string $slug): void
     {
@@ -35,6 +36,11 @@ class CollectionPage extends Component
     public function getCollectionProperty(): mixed
     {
         return $this->url->element;
+    }
+
+    public function getProductsProperty()
+    {
+        return $this->collection->products()->paginate(8);
     }
 
     public function render(): View

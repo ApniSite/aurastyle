@@ -62,7 +62,12 @@ new #[Layout('layouts.storefront')] class extends Component
 
 <x-container>
     <div class="max-w-md p-4 mx-auto border border-gray-300 dark:border-gray-700 rounded-lg">
-        <x-brand.logo-message :message="__('By signing up, you agree to our terms & policy')" />
+        <div class="flex flex-col items-center mx-auto text-gray-500 dark:text-gray-300">
+            <a href="/" wire:navigate>
+                <x-brand.logo-dark class="w-auto h-16 mb-4 hover:text-indigo-600"/>
+            </a>
+            <p class="mt-2 mb-4 text-sm">{{ __('By signing up, you agree to our terms & policy') }}</p>
+        </div>
 
     <form wire:submit="register" class="flex flex-wrap gap-2">
         <!-- First Name -->

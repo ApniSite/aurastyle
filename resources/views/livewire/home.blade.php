@@ -7,8 +7,7 @@
         @endif
 
         @if (count($this->latestProducts))
-            <livewire:components.carousel 
-                title="New Styles" collectionUrl="sale" 
+            <livewire:components.carousel title="New Styles" collectionUrl="sale"
                 :products="$this->latestProducts" />
         @endif
 
@@ -17,9 +16,9 @@
         @endif
 
         @if ($collection = $this->randomCollection)
-            <livewire:components.carousel 
-                :title="$collection->translateAttribute('name')" 
-                :collectionUrl="$collection->defaultUrl->slug" 
+            <livewire:components.carousel
+                :title="$collection->translateAttribute('name')"
+                :collectionUrl="$collection->defaultUrl->slug"
                 :products="$collection->products()->orderBy('created_at', 'DESC')->take(8)->get()" />
         @endif
     </div>

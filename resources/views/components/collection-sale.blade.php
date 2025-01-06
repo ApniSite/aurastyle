@@ -2,22 +2,19 @@
     <div class="p-4 overflow-hidden border-4 border-gray-900 rounded-lg">
         <div class="sm:py-32 sm:relative">
             <div>
-                <h2 class="text-3xl font-extrabold sm:text-5xl">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-5xl">
                     {{ $this->saleCollection->translateAttribute('name') }}
                 </h2>
 
                 @if ($this->saleCollection->translateAttribute('description'))
-                    <p class="mt-1 text-lg font-medium">
+                    <p class="mt-1 text-lg font-medium text-gray-900">
                         {!! $this->saleCollection->translateAttribute('description') !!}
                     </p>
                 @endif
 
                 <a href="{{ route('collection.view', $this->saleCollection->defaultUrl->slug) }}"
-                   class="inline-block px-5 py-3 mt-6 text-sm font-medium text-white bg-black rounded-lg hover:ring-1 hover:ring-black"
-                   wire:navigate
-                >
-                    Shop the Sale
-                </a>
+                   class="inline-block px-5 py-3 mt-6 text-sm font-medium text-white bg-gray-900 rounded-lg hover:ring-1 hover:ring-black"
+                   wire:navigate>Shop the Sale</a>
             </div>
 
             <div class="mt-8 sm:absolute sm:right-0 sm:top-0 sm:mt-0">

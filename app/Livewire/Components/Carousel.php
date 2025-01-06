@@ -18,7 +18,7 @@ class Carousel extends Component
         if ($collection) {
             $this->title = $collection->translateAttribute('name');
             $this->collectionUrl = $collection->defaultUrl->slug;
-            $this->products = $collection->products;
+            $this->products = $collection->products()->orderBy('created_at', 'DESC')->take(8)->get();
         }
     }
 
