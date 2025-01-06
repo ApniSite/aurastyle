@@ -6,10 +6,10 @@
                 @if ($this->image)
                     <div class="relative aspect-w-1 aspect-h-1 lg:col-span-5">
                         <img class="object-cover rounded-xl" x-bind:src="active"
-                             alt="{{ $this->product->translateAttribute('name') }}" />
+                             alt="{{ $this->product->attr('name') }}" />
                         @if ($this->variant->canBeFulfilledAtQuantity(1))
                         <x-flag :text="$this->product->discount()?->name" />
-                        @else 
+                        @else
                         <x-flag text="Sold out" />
                         @endif
                     </div>
@@ -23,7 +23,7 @@
                             <img loading="lazy"
                                  class="object-cover rounded-xl"
                                  src="{{ $image->getUrl('small') }}"
-                                 alt="{{ $this->product->translateAttribute('name') }}" />
+                                 alt="{{ $this->product->attr('name') }}" />
                         </div>
                     @endforeach
                 </div>
@@ -36,7 +36,7 @@
                         <a href="{{ route('brand.view', $brand->defaultUrl->slug) }}" class="block" wire:navigate>
                             <span>{{ $brand->name }}</span></a>
                         @endif
-                        <span class="font-bold">{{ $this->product->translateAttribute('name') }}</span>
+                        <span class="font-bold">{{ $this->product->attr('name') }}</span>
                     </h1>
 
                     @if ($this->variant->canBeFulfilledAtQuantity(1))
@@ -49,7 +49,7 @@
                 </p>
 
                 <article class="mt-4 text-gray-700 mb-4">
-                    {!! $this->product->translateAttribute('description') !!}
+                    {!! $this->product->attr('description') !!}
                 </article>
 
                 <form>
@@ -97,17 +97,17 @@
         </div>
 
         @if (count($this->crossSellProducts))
-        <livewire:components.carousel title="You might also like these" collectionUrl="sale" 
+        <livewire:components.carousel title="You might also like these" collectionUrl="sale"
             :products="$this->crossSellProducts" />
         @endif
 
         @if (count($this->upSellProducts))
-        <livewire:components.carousel title="Get the complete style" collectionUrl="sale" 
+        <livewire:components.carousel title="Get the complete style" collectionUrl="sale"
             :products="$this->upSellProducts" />
         @endif
 
         @if (count($this->alternateProducts))
-        <livewire:components.carousel title="How about these?" collectionUrl="sale" 
+        <livewire:components.carousel title="How about these?" collectionUrl="sale"
             :products="$this->alternateProducts" />
         @endif
     </div>

@@ -36,6 +36,21 @@ class BrandPage extends Component
         return $this->url->element;
     }
 
+    public function getTitleProperty(): string
+    {
+        return $this->brand->name;
+    }
+
+    public function getTopBrandsProperty()
+    {
+        return Brand::withCount('products')->orderBy('products_count', 'DESC')->take(6)->get();
+    }
+
+    public function getProductsProperty()
+    {
+        return $this->brand->products()->paginate(24);
+    }
+
     public function render(): View
     {
         return view('livewire.brand-page');

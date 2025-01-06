@@ -41,7 +41,7 @@ class NewOrder extends Notification
                     ->line(new HtmlString("<b>Total value:</b> {$this->order->total->formatted}"))
                     ->line(new HtmlString(
                         $this->order->productLines->map(
-                            fn ($line) => "<p><b>Product:</b> {$line->purchasable->product->translateAttribute('name')} <br /><b>Quantity:</b> {$line->quantity} <b>Price:</b> {$line->total->formatted}</p>")->implode('')
+                            fn ($line) => "<p><b>Product:</b> {$line->purchasable->product->attr('name')} <br /><b>Quantity:</b> {$line->quantity} <b>Price:</b> {$line->total->formatted}</p>")->implode('')
                         )
                     )->action('Click here to view', $url)
                     ->line(new HtmlString('Thank you for using <a href="https://zabrdast.com">Zabrdast E-commerce!</a>'));

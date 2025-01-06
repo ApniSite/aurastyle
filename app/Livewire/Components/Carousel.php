@@ -16,7 +16,7 @@ class Carousel extends Component
     public function mount($collection = null): void
     {
         if ($collection) {
-            $this->title = $collection->translateAttribute('name');
+            $this->title = $collection->attr('name');
             $this->collectionUrl = $collection->defaultUrl->slug;
             $this->products = $collection->products()->orderBy('created_at', 'DESC')->take(8)->get();
         }

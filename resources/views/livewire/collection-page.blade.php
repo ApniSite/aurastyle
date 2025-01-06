@@ -9,7 +9,7 @@
             <li class="bg-gray-100">
                 <a href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
                 class="block px-3 py-4 transition hover:bg-gray-300">
-                {{ $collection->translateAttribute('name') }}
+                {{ $collection->attr('name') }}
             </a></li>
             @endforeach
         </ul></nav>
