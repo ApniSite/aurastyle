@@ -4,13 +4,13 @@
 
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
-<meta name="title" content="{{ config('meta.title') }}"/>
+<meta name="title" content="{{ $title ?? config('meta.title') }}"/>
 <meta name="keywords" content="{{ config('meta.keywords') }}"/>
 <meta name="description" content="{{ config('meta.description') }}">
 <meta name="robots" content="index,follow"/>
 <meta name="url" content="{{ url()->current() }}">
 
-<meta property=”og:title” content="{{ config('meta.title') }}"/>
+<meta property=”og:title” content="{{ $title ?? config('meta.title') }}"/>
 <meta property="og:description" content="{{ config('meta.description') }}"/>
 <meta property=”og:type” content="website"/>
 <meta property="og:locale" content="{{ str_replace('_', '-', app()->getLocale()) }}" />
