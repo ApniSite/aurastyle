@@ -38,6 +38,12 @@ class CollectionPage extends Component
         return $this->url->element;
     }
 
+    public function getTitleProperty(): string
+    {
+        $description = $this->collection->translateAttribute('description');
+        return $description ? html_entity_decode(strip_tags($description)) : $this->collection->translateAttribute('name');
+    }
+
     public function getProductsProperty()
     {
         return $this->collection->products()->paginate(8);

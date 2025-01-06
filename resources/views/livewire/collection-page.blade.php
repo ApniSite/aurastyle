@@ -1,8 +1,7 @@
+<x-slot name="title">{{ $this->title . ' | ' . config('app.name') }}</x-slot>
 <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 lg:px-8">
     <section>
-        <h2 class="text-2xl font-bold mb-3">
-            {!! $this->collection->translateAttribute('description') ?? $this->collection->translateAttribute('name') !!}
-        </h2>
+        <h2 class="text-2xl font-bold mb-3">{{ $this->title }}</h2>
 
         @if (count($this->collection->children))
         <nav class="w-full overflow-scroll"><ul class="flex gap-4">
@@ -17,13 +16,9 @@
         @endif
 
         <div class="grid grid-cols-2 gap-8 my-4 sm:grid-cols-3 lg:grid-cols-4">
-            @forelse($this->products as $product)
+            @foreach ($this->products as $product)
                 <x-product-card :product="$product" />
-            @empty
-                <div class="col-span-2 text-sm">
-                    {!! $this->collection->translateAttribute('description') !!}
-                </div>
-            @endforelse
+            @endforeach
             <div class="col-span-full h-16">{{ $this->products->links() }}</div>
         </div>
         <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between"></div>
