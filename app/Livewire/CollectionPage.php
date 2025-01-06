@@ -40,13 +40,13 @@ class CollectionPage extends Component
 
     public function getTitleProperty(): string
     {
-        $description = $this->collection->translateAttribute('description');
-        return $description ? html_entity_decode(strip_tags($description)) : $this->collection->translateAttribute('name');
+        $description = $this->collection->attr('description');
+        return $description ? html_entity_decode(strip_tags($description)) : $this->collection->attr('name');
     }
 
     public function getProductsProperty()
     {
-        return $this->collection->products()->paginate(8);
+        return $this->collection->products()->paginate(24);
     }
 
     public function render(): View

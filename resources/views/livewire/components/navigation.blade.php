@@ -24,7 +24,7 @@
                     <a class="py-4 text-sm font-medium transition hover:opacity-75"
                        href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
                        wire:navigate @mouseover="open = true">
-                        {{ $collection->translateAttribute('name') }}
+                        {{ $collection->attr('name') }}
                     </a>
 
                     @if (count($collection->children))
@@ -34,7 +34,7 @@
                         @foreach ($collection->children as $collection)
                         <li><a href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
                             class="flex items-center px-3 py-4 transition hover:bg-gray-200">
-                            {{ $collection->translateAttribute('name') }}
+                            {{ $collection->attr('name') }}
                         </a></li>
                         @endforeach
                     </ul>
@@ -79,7 +79,7 @@
                                 <li><a class="text-sm font-medium"
                                        href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
                                        wire:navigate>
-                                        {{ $collection->translateAttribute('name') }}
+                                        {{ $collection->attr('name') }}
                                 </a></li>
                             @endforeach
                         </ul>

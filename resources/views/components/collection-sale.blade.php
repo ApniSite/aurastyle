@@ -3,12 +3,12 @@
         <div class="sm:py-32 sm:relative">
             <div>
                 <h2 class="text-3xl font-extrabold text-gray-900 sm:text-5xl">
-                    {{ $this->saleCollection->translateAttribute('name') }}
+                    {{ $this->saleCollection->attr('name') }}
                 </h2>
 
-                @if ($this->saleCollection->translateAttribute('description'))
+                @if ($this->saleCollection->attr('description'))
                     <p class="mt-1 text-lg font-medium text-gray-900">
-                        {!! $this->saleCollection->translateAttribute('description') !!}
+                        {!! $this->saleCollection->attr('description') !!}
                     </p>
                 @endif
 

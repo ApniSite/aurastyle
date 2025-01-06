@@ -17,7 +17,7 @@
 
         @if ($collection = $this->randomCollection)
             <livewire:components.carousel
-                :title="$collection->translateAttribute('name')"
+                :title="$collection->attr('name')"
                 :collectionUrl="$collection->defaultUrl->slug"
                 :products="$collection->products()->orderBy('created_at', 'DESC')->take(8)->get()" />
         @endif
