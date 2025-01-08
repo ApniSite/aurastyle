@@ -34,7 +34,7 @@ class ProductPage extends Component
             ]
         );
 
-        if (! $this->url) {
+        if (! $this->url || ! $this->url->element) {
             abort(404);
         }
 
