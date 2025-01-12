@@ -3,11 +3,11 @@
 namespace App\Livewire;
 
 use App\Traits\FetchesUrls;
-use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Lunar\Models\Collection as CollectionModel;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class CollectionPage extends Component
 {
@@ -42,6 +42,14 @@ class CollectionPage extends Component
     {
         $description = $this->collection->attr('description');
         return $description ? html_entity_decode(strip_tags($description)) : $this->collection->attr('name');
+    }
+
+    /**
+     * Computed property to return current image.
+     */
+    public function getImageProperty(): ?Media
+    {
+        return $this->collection->media->sortBy('order_column')->first();
     }
 
     public function getProductsProperty()

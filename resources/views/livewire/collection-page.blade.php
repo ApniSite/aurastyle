@@ -1,6 +1,11 @@
 <x-slot name="title">{{ $this->title . ' | ' . config('app.name') }}</x-slot>
 <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 lg:px-8">
     <section>
+        @if ($this->image)
+        <div class="relative aspect-w-1 aspect-h-1 mb-4">
+            <img class="object-cover rounded-xl" src="{{ $this->image->getUrl() }}" alt="{{ $this->title }}" />
+        </div>
+        @endif
         <h2 class="text-2xl font-bold mb-3">{{ $this->title }}</h2>
 
         @if (count($this->collection->children))
