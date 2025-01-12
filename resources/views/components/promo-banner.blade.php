@@ -3,7 +3,7 @@
     <!-- Row 1: Boxes -->
     <a href="{{ route('collection.view', ['slug' => 'men']) }}" class="group overflow-hidden col-span-2 sm:col-span-5 text-center">
     <span>
-        <img alt="Men's Collection" src="{{ asset('images/banner-men-2024.webp') }}" alt="" class="transition-transform duration-300 group-hover:scale-105">
+        <img alt="Women dress sale" src="{{ asset('images/banner-women-sale-2025.webp') }}" alt="" class="transition-transform duration-300 group-hover:scale-105">
     </span>
     </a>
     <a href="{{ route('register') }}" class="group overflow-hidden col-span-1 sm:col-span-2 text-center flex bg-teal-500 bg-opacity-60">
@@ -13,7 +13,7 @@
     </a>
     <a href="{{ route('collection.view', ['slug' => 'ladies']) }}" class="group overflow-hidden col-span-1 sm:col-span-2 text-center">
     <span>
-        <img alt="Dress Women" src="{{ asset('images/banner-women-dress.webp') }}" class="min-h-full transition-transform duration-300 group-hover:scale-105" >
+        <img alt="Men's Collection" src="{{ asset('images/banner-men-2025.webp') }}" class="min-h-full transition-transform duration-300 group-hover:scale-105" >
     </span>
     </a>
     <!-- Row 2: Boxes -->
