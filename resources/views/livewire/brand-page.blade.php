@@ -22,6 +22,6 @@
         </div>
     </section>
     @foreach ($this->brand->collections as $collection)
-        <livewire:components.carousel :collection="$collection" />
+        <x-carousel :collection="$collection" />
     @endforeach
 </div>

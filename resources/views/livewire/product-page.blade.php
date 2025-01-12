@@ -97,17 +97,17 @@
         </div>
 
         @if (count($this->crossSellProducts))
-        <livewire:components.carousel title="You might also like these" collectionUrl="sale"
+        <x-carousel title="You might also like these" collectionUrl="sale"
             :products="$this->crossSellProducts" />
         @endif
 
         @if (count($this->upSellProducts))
-        <livewire:components.carousel title="Get the complete style" collectionUrl="sale"
+        <x-carousel title="Get the complete style" collectionUrl="sale"
             :products="$this->upSellProducts" />
         @endif
 
         @if (count($this->alternateProducts))
-        <livewire:components.carousel title="How about these?" collectionUrl="sale"
+        <x-carousel title="How about these?" collectionUrl="sale"
             :products="$this->alternateProducts" />
         @endif
     </div>
