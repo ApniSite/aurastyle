@@ -20,6 +20,7 @@
         </ul></nav>
         @endif
 
+        @if (count($this->products))
         <div class="grid grid-cols-2 gap-8 my-4 sm:grid-cols-3 lg:grid-cols-4">
             @foreach ($this->products as $product)
                 <x-product-card :product="$product" />
@@ -27,10 +28,9 @@
             <div class="col-span-full h-16">{{ $this->products->links() }}</div>
         </div>
         <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between"></div>
+        @endif
     </section>
     @foreach ($this->collection->children as $collection)
-        @if (count($collection->products))
-        <livewire:components.carousel :collection="$collection" />
-        @endif
+        <x-carousel :collection="$collection" />
     @endforeach
 </div>
