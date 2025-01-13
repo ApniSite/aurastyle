@@ -24,7 +24,7 @@
     </a>
     <a href="{{ route('register') }}" class="group overflow-hidden col-span-1 sm:col-span-2 text-center">
     <span>
-        <video class="min-h-full object-cover" autoplay loop muted><source src="{{ asset('images/banner-new-discount-50.mp4') }}" type="video/mp4" />New Discount 50%</video>
+        <video class="min-h-full object-cover" autoplay loop muted><source src="{{ asset('images/banner-new-arrival.mp4') }}" type="video/mp4" />New Discount 50%</video>
     </span>
     </a>
     <a href="{{ route('register') }}" class="flex group overflow-hidden col-span-2 sm:col-span-5 text-center">
