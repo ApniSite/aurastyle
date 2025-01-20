@@ -54,7 +54,7 @@ class CollectionPage extends Component
 
     public function getProductsProperty()
     {
-        return $this->collection->products()->paginate(24);
+        return $this->collection->products()->orderBy('created_at', 'DESC')->paginate(24);
     }
 
     public function render(): View
