@@ -1,5 +1,5 @@
 <header class="relative border-b border-gray-100">
-    <div class="bg-gray-600 text-xs text-white hidden md:block">
+    <div class="bg-gray-600 text-xs text-white hidden sm:block">
         <div class="max-w-screen-xl flex justify-between mx-auto py-2 px-4 sm:px-6 lg:px-8">
             <div class="ml-4"><span>Always find best deals with us</span></div>
             <div><span>Free Delivery* & returns</span></div>
@@ -74,9 +74,9 @@
                     <div class="absolute right-0 z-50 w-screen sm:max-w-xs"
                         x-cloak x-transition x-show="mobileMenu">
                         <ul x-on:click.away="mobileMenu = false"
-                            class="p-6 space-y-4 bg-white border border-gray-100 shadow-xl rounded-xl">
+                            class="p-2 space-y-1 text-sm font-medium bg-white border border-gray-100 shadow-xl rounded-xl">
                             @foreach ($this->collections as $collection)
-                                <li><a class="text-sm font-medium"
+                                <li class="bg-gray-100"><a class="flex items-center px-3 py-4"
                                        href="{{ route('collection.view', $collection->defaultUrl->slug) }}"
                                        wire:navigate>
                                         {{ $collection->attr('name') }}
