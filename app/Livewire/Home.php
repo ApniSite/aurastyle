@@ -8,9 +8,20 @@ use Livewire\Component;
 use Lunar\Models\Brand;
 use Lunar\Models\Collection;
 use Lunar\Models\Url;
+use Spatie\SchemaOrg\Schema;
 
 class Home extends Component
 {
+    public function getWebsiteSchemaProperty() {
+        return Schema::onlineStore()
+            ->name(config('app.name'))
+            ->url(config('app.url'))
+            ->logo(asset('apple-touch-icon.png'))
+            ->keywords(config('meta.keywords'))
+            ->description(config('meta.description'))
+            ->sameAs(config('meta.social.facebook'))
+            ->contactPoint(Schema::contactPoint()->email(config('meta.support.email')));
+    }
     /**
      * Return the sale collection.
      */

@@ -1,3 +1,4 @@
+<x-slot name="schema">{!! $this->websiteSchema->toScript() !!}</x-slot>
 <div>
     <x-promo-banner class="bg-gray-100 px-2 py-2 mb-4" />
 
