@@ -60,8 +60,9 @@ class Home extends Component
             $collections = $collections->where('element_id', '!=', $this->getSaleCollectionProperty()?->id);
         }
 
-        foreach ($collections->inRandomOrder() as $collection) {
-            if ($collection->has('products')) {
+        $randomCollections = $collections->inRandomOrder();
+        foreach ($randomCollections as $collection) {
+            if (!empty($collection) && $collection->has('products')) {
                 return $collection->element;
             }
         }
