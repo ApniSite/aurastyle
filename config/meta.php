@@ -17,5 +17,9 @@ return [
         'twitter' => env('SOCIAL_TWITTER', 'https://zabrdast.com'),
         'instagram' => env('SOCIAL_INSTA', 'https://zabrdast.com'),
         'linkedin' => env('SOCIAL_LINKEDIN', 'https://zabrdast.com'),
-    ]
+    ],
+
+    'landing' => [
+        'sale' => false
+    ],
 ];
