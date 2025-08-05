@@ -20,4 +20,5 @@ jobs:
           username: ${{ secrets.FVUSERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.FVSSHKEY }}
+          passphrase: ${{ secrets.FVPASSPHRASE }}
           script: "cd /home/foamvillageco/public_html && ./.scripts/deploy.sh"
