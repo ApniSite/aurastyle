@@ -1,11 +1,8 @@
-name: Deploy
+name: Deploy to Foam Village
 
 # Trigger the workflow on push and
 # pull request events on the production branch
-on:
-  push:
-    branches:
-      - production
+on: workflow_dispatch
 
 # Authenticate to the the server via ssh
 # and run our deployment script
@@ -16,11 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Deploy to server
+      - name: Deploy to foamvillage
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
+          host: ${{ secrets.FVHOST }}
+          username: ${{ secrets.FVUSERNAME }}
           port: ${{ secrets.PORT }}
-          key: ${{ secrets.SSHKEY }}
-          script: "cd /home/aurastyl/public_html && ./.scripts/deploy.sh"
+          key: ${{ secrets.FVSSHKEY }}
+          script: "cd /home/foamvillageco/public_html && ./.scripts/deploy.sh"
