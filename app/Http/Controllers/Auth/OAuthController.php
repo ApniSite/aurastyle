@@ -33,7 +33,6 @@ class OAuthController extends Controller
         try {
             /** @var OAuth2User $socialUser */
             $socialUser = Socialite::driver($provider)->user();
-            Log::debug('Social User:', ['user' => $socialUser]);
 
             $user = $this->findOrCreateUser($provider, $socialUser);
 
@@ -41,7 +40,6 @@ class OAuthController extends Controller
 
             return redirect()->intended(route('account', absolute: false));
         } catch (Exception $e) {
-            Log::error('OAuth callback error: ' . $e->getMessage());
             return redirect()->route('login')->with('error', 'Authentication failed. Please try again.');
         }
     }
