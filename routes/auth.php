@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\OAuthController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -23,4 +24,13 @@ Route::middleware('auth')->group(function () {
         ->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
 
     Volt::route('confirm-password', 'pages.auth.confirm-password')->name('password.confirm');
+});
+
+// OAuth Routes
+Route::prefix('auth')->controller(OAuthController::class)->group(function () {
+    Route::get('{provider}/redirect', 'redirect')
+        ->where('provider', 'google|facebook')->name('oauth.redirect');
+
+    Route::get('{provider}/callback', 'callback')
+        ->where('provider', 'google|facebook');
 });
